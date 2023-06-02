@@ -1,5 +1,5 @@
 //INTERFACES
-interface Product {
+export interface Product {
     description: string;
     price: number;
 }
@@ -24,7 +24,7 @@ const tablet: Product = {
 
 //FUNCION
 //Recibe en option todos los productos para calcular los totales con la interface TaxCalculationOptions
-function taxCalculation(options: TaxCalculationOptions): [number, number]{
+export function taxCalculation(options: TaxCalculationOptions): [number, number]{
     
     //Se inicia total
     let total = 0;
@@ -61,12 +61,3 @@ const [total, taxTotal] = taxCalculation({
 //Muestra resultado del arreglo de la funcion con los valores 0 y 1
 console.log(`Total:`, total);
 console.log(`Tax:`, taxTotal);
-
-
-
-
-
-
-
-
-export {}
