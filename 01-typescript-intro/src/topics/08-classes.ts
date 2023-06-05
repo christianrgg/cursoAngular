@@ -7,6 +7,8 @@ export class Persona {
         this.address = address;
     }
 }
+const ironman = new Persona("Iron Man", "New York");
+console.log(ironman);
 
 //Ejemplo de clase y constructor resumido
 
@@ -22,9 +24,21 @@ export class Player {
     }
 }
 
+// EXTENSIÓN DE CLASE
+export class CareerMode extends Player {
+    constructor(
+        public goals: number,
+        public growth: number,
+    ){
+        super("Messi", "Paris", 98)
+    }
+}
 
-const ironman = new Persona("Iron Man", "New York");
- console.log(ironman);
 
- const messi = new Player ("Messi", "Paris", 98)
+
+
+ const messi = new Player ("Messi", "Paris", 98);
+ const messiCareer = new CareerMode (26, 98);
+
  console.log(messi);
+ console.log(messiCareer);
