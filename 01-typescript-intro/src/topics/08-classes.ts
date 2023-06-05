@@ -1,3 +1,4 @@
+import { Player } from './08-classes';
 export class Persona {
     public name: string;
     public address: string;
@@ -25,20 +26,31 @@ export class Player {
 }
 
 // EXTENSIÓN DE CLASE
-export class CareerMode extends Player {
+// export class CareerMode extends Player {
+//     constructor(
+//         public goals: number,
+//         public growth: number,
+//     ){
+//         super("Messi", "Paris", 98)
+//     }
+// }
+
+export class CareerMode {
     constructor(
         public goals: number,
         public growth: number,
+        public Player: Player,
     ){
-        super("Messi", "Paris", 98)
     }
 }
 
 
 
 
+
+
  const messi = new Player ("Messi", "Paris", 98);
- const messiCareer = new CareerMode (26, 98);
+ const messiCareer = new CareerMode (26, 98, messi);
 
  console.log(messi);
  console.log(messiCareer);
