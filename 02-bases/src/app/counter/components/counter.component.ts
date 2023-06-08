@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   template: `
     <h3>Counter {{counter}}</h3>
     <!-- Se llama al metodo increaseByOne -->
-    <button (click)="decrementByOne(-1)">-</button>
+    <button (click)="decrementByOne(1)">-</button>
     <button (click)="resetCounter(0)">Reset</button>
     <button (click)="increaseByOne(1)">+</button>
   `,
