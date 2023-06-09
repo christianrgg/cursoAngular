@@ -17,9 +17,9 @@ export class AddCharacterComponent {
   }
 
   emitCharacter():void{
-    //Para debuguear, introducir los datos y submit, luego ir a consola a la seccion de angular y ver paso a paso.
-    debugger;
+
     console.log(this.character);
+
     if(this.character.name.length === 0) return;
 
     this.onNewCharacter.emit(this.character);
