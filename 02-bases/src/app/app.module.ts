@@ -6,11 +6,13 @@ import { ListComponent } from './heroes/list/list.component';
 import { CounterModule } from './counter/counter.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { DbzModule } from './dbz/dbz.module';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
