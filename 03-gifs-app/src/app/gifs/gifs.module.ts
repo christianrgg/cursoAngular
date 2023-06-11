@@ -1,15 +1,21 @@
-//	1. Crear carpeta gifs: Para todo lo relacionado con la app: componentes, servicios, interfaces y páginas.
-//  2. Crear carpeta shared: para todo lo que no tiene que ver con la app como: navbar, sidebar,
-// 3. Crear el módulo  gifs (si no esta hecha la carpeta la creara) comando: "ng g m gifs"
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HomePageComponent } from './pages/home/home-page.component';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
 
 
-
+// 16. Exportar el compornente HomePageComponent
+// 20. Verificar que el searchBoxComponent se encuentre declarado
 @NgModule({
-  declarations: [],
+  declarations: [
+    HomePageComponent,
+    SearchBoxComponent
+  ],
   imports: [
     CommonModule
+  ],
+  exports:[
+    HomePageComponent
   ]
 })
 export class GifsModule { }

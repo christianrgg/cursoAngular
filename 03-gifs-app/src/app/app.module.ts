@@ -1,4 +1,4 @@
-// 5. Hacer las importaciones de los modulos al appmodule
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
