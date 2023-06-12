@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams} from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
 export class GifsService {
 
   private _tagHistory: string[] = [];
-// 54. Crear propiedad con clave de Apikey
   private apiKey: string = '4wx7dk58fbdCKoFJmnbzMlea2WXb9wvd'
-// 55. En postman Crear una nueva app, ir a la documentación y copiar la gifURL y pegarla en postaman "api.giphy.com/v1/gifs/search?api_key=4wx7dk58fbdCKoFJmnbzMlea2WXb9wvd" cambiar la ultima palabra por search, agregar apikey y clic en enviar
-// 56. En los query parametros agregar q - valoran y limit - 10
+  //60. Optimización del url
+  private serviceUrl:string = 'https://api.giphy.com/v1/gifs'
+
+  // 58. Inyectar el modulo httpclientemodule
+  constructor(private http: HttpClient) {}
+
   get tagHistory(){
     return [...this._tagHistory]
   }
@@ -30,10 +34,19 @@ export class GifsService {
   public searchTag (tag:string):void {
 
     if(tag.length === 0) return;
-
     this.organizeHistory(tag);
-  }
+    // 61. Para optimizar la url con los parametros, agregarlos a una clase HttpParams, asegurarse de importarlo
+    const params = new HttpParams()
+      .set('api_key', this.apiKey)
+      .set('limit', 10)
+      .set('q', tag)
 
-  constructor() { }
+    // 59. Copiar la liga generada por postman agregar https:// y pegarla en el llamado del servicio http (OBSERVABLE) y suscribirse para escuchar los llamados la primera parte del url va en el paso 60 "https://api.giphy.com/v1/gifs/search?api_key=4wx7dk58fbdCKoFJmnbzMlea2WXb9wvd&q=valorant&limit=10"
+    this.http.get(`${this.serviceUrl}/search`,{params})
+      .subscribe( resp =>{
+        console.log(resp);
+      })
+
+  }
 
 }
