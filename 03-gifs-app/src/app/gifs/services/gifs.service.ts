@@ -5,7 +5,6 @@ import { SearchResponse, Gif } from '../interfaces/gifs.interfaces';
 @Injectable({providedIn: 'root'})
 export class GifsService {
 
-// 66. Crear constante que almacene los gifs, verificar la importacion de la interface e inicializarla vacia.
   public gifList: Gif[] = [];
   private _tagHistory: string[] = [];
   private apiKey: string = '4wx7dk58fbdCKoFJmnbzMlea2WXb9wvd'
@@ -41,12 +40,10 @@ export class GifsService {
       .set('api_key', this.apiKey)
       .set('limit', 10)
       .set('q', tag)
-// 65. Indicarle a la petición que tipo dato es, para este caso es searchresponse
+
     this.http.get<SearchResponse>(`${this.serviceUrl}/search`,{params})
       .subscribe( resp =>{
-//67. Asignar respuesta con gif a variable que los almacena
         this.gifList = resp.data;
-        console.log({gifs: this.gifList});
       })
 
   }

@@ -1,11 +1,12 @@
-// 23. Generar el componente hijo card list "ng g component gifs/components/card-list"
-//24. Eliminar los archivos spec y css, renombrar el selectror "gifs-card-list"
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Gif } from '../../interfaces/gifs.interfaces';
 
 @Component({
   selector: 'gifs-card-list',
   templateUrl: './card-list.component.html',
 })
 export class CardListComponent {
-
+// 70. Agregar decorador para el argumento que van a recibir e inicializarlo vacio
+  @Input()
+  public gifs: Gif[] = [];
 }

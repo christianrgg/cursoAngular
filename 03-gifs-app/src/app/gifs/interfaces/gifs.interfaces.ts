@@ -1,12 +1,9 @@
-// 62. Crear archivo de interfaces para la respuesta tipear la respuesta del https (Este archivo).
-// 63. Copiar la respuesta completa del postman y pegarla en la siguiente url "https://app.quicktype.io/" nos ayudara a colocar el tipo de dato de la cada respuesta. Modificar el name por "SearchResponse". En lenguaje colocar typescrip y activar interface only; luego clic en copiar codigo y pegarlo aqui.
-
 export interface SearchResponse {
   data:       Gif[];
   pagination: Pagination;
   meta:       Meta;
 }
-// 64. Presionar fn + f2 sobre datum y sustituirlo por Gif
+
 export interface Gif {
   type:                       Type;
   id:                         string;
