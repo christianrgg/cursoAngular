@@ -10,7 +10,7 @@ export class GifsService {
   private apiKey: string = '4wx7dk58fbdCKoFJmnbzMlea2WXb9wvd'
   private serviceUrl:string = 'https://api.giphy.com/v1/gifs'
 
-// 81. Llamar el metodo cuando el servicio sea inyectado
+
   constructor(private http: HttpClient) {
     this.loadLocalStorage();
   }
@@ -39,14 +39,12 @@ export class GifsService {
     localStorage.setItem('history', JSON.stringify(this._tagHistory))
   }
 
-// 78. Metodo para leer localstorage
-  private loadLocalStorage():void{
-// 79. Si no hay nada en el localstorage, decirle que no haga nada
-  if(!localStorage.getItem('history')) return;
-//80. Si hay algo, asignarlo y convertirlo a json y asignarle el null operation
-  this._tagHistory = JSON.parse(localStorage.getItem('history')!);
 
-// 82. Mostrar en la pagina de busqueda la primera etiqueta del historial o indice
+  private loadLocalStorage():void{
+
+  if(!localStorage.getItem('history')) return;
+
+  this._tagHistory = JSON.parse(localStorage.getItem('history')!);
     if(this._tagHistory.length === 0) return;
     this.searchTag(this._tagHistory[0]);
 
