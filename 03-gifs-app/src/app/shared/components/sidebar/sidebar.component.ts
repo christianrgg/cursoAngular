@@ -17,7 +17,6 @@ export class SidebarComponent {
     return this.gifsService.tagHistory
   }
 
-  // 75. Hacer el metodo para las etiquetas que llame al servicio y el metodo searchtag
   searchByTag( tag: string ):void{
     this.gifsService.searchTag(tag);
   }

@@ -26,9 +26,18 @@ export class GifsService {
       this._tagHistory = this._tagHistory.filter((oldTag) => oldTag !==tag)
     }
     this._tagHistory.unshift(tag);
-
     this._tagHistory = this._tagHistory.slice(0,10);
+    // 77. Llamar al metodo de localstorage
+    this.saveLocalStorage();
+
   }
+
+  // 76. Crear un metodo para el almacenamiento de localstorage, recuerda local storage almacena solo string por lo que se debe convertir el json a string.
+  private saveLocalStorage():void{
+    localStorage.setItem('history', JSON.stringify(this._tagHistory))
+  }
+
+
 
 
   public searchTag (tag:string):void {
