@@ -6,7 +6,6 @@ import { Gif } from '../../interfaces/gifs.interfaces';
   templateUrl: './card-list.component.html',
 })
 export class CardListComponent {
-// 70. Agregar decorador para el argumento que van a recibir e inicializarlo vacio
   @Input()
   public gifs: Gif[] = [];
 }

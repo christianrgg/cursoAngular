@@ -1,7 +1,13 @@
 <div class="row">
-  <!-- 72. Agregar el ciclo ngfor para comenzar a mostrar los gifs-->
   <div  *ngFor="let gif of gifs" class="col-md-3 col-sm-6">
     <div class="card mb-2 text-center bg-dark">
+
+      <!-- 72 Colocar etiqueta imagen, entre corchetes eso indica que los datos vienen de javascrip y colocar los datos de interface-->
+      <img
+      [src]="gif.images.downsized_medium.url"
+      [alt]="gif.title"
+      class="card-img-top"
+      >
       <div class="card-body text-white">
         <p class="card-text">
           {{gif.title}}
