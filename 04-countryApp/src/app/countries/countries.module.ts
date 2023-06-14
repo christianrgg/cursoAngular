@@ -7,7 +7,7 @@ import { CountryPageComponent } from './pages/country-page/country-page.componen
 import { CountriesRoutingModule } from './countries-routing.module';
 
 
-// 49. Importar el modulo de routes
+
 @NgModule({
   declarations: [
     ByCapitalPageComponent,
