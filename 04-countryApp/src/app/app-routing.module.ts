@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './shared/pages/home-page/home-page.component';
 import { AboutPageComponent } from './shared/pages/about-page/about-page.component';
-
-// 31. Vaciar el pat de home, y tambien el de redirecto a home
+import { ContacPageComponent } from './shared/pages/contac-page/contac-page.component';
+// 37. Crear las ruta de la nueva pagina ContacPageComponent
  const routes: Routes =[
   {
     path: '',
@@ -14,9 +14,13 @@ import { AboutPageComponent } from './shared/pages/about-page/about-page.compone
     component: AboutPageComponent,
   },
   {
+    path: 'contac',
+    component: ContacPageComponent,
+  },
+  {
     path: '**',
     redirectTo: '',
-  }
+  },
  ];
 
 

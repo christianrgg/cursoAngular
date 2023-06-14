@@ -4,16 +4,15 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
+import { ContacPageComponent } from './pages/contac-page/contac-page.component';
 
-
-
-// 27. Exportar modulo sidebar
-// 29. Importar el routerModule
+// 36. Exportar modulo ContacPageComponent
 @NgModule({
   declarations: [
     HomePageComponent,
     AboutPageComponent,
-    SidebarComponent
+    SidebarComponent,
+    ContacPageComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +21,8 @@ import { RouterModule } from '@angular/router';
   exports: [
     HomePageComponent,
     AboutPageComponent,
-    SidebarComponent
+    SidebarComponent,
+    ContacPageComponent
   ]
 })
 export class SharedModule { }
