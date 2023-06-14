@@ -1,17 +1,13 @@
-<!-- 99. Crear la estructura html que renderizara el url -->
 <div class="d-flex justify-content-center">
-<!-- 102.  Comentar la imagen temporalmente-->
-<!-- 107.  Descomentar y agregar evento load que llame al metodo onload-->
-<!-- 109.  Agregar un ngstyle que muestre panatallas de acuerdo a hasloaded-->
+
+<!-- 111. Agregar la animacion-->
   <img
   [src]="url"
   [alt]="alt"
-  class="card-img-top"
+  class="card-img-top animate__animated animate__flipInX"
   (load)="onLoad()"
   [ngStyle]="{'display': hasLoaded ? '' : 'none'}"
   >
-  <!-- 104. Crear una imagen y colocar la ubicacion de svg descargado, dando por hecho la ubicacion montada en la web  y hacer modificaciones-->
-  <!-- 108.  Hacer un ngfor para las imagenes que llame pregunte si no ha sido cargado-->
   <img
   *ngIf="!hasLoaded"
   src="assets/circles.svg"
