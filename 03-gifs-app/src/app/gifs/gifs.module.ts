@@ -4,10 +4,10 @@ import { HomePageComponent } from './pages/home/home-page.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { CardListComponent } from './components/card-list/card-list.component';
 import { CardComponent } from './components/card/card.component';
+import { SharedModule } from '../shared/shared.module';
 
 
-// 16. Exportar el compornente HomePageComponent
-// 20. Verificar que el searchBoxComponent se encuentre declarado
+// 93. Importar el modulo sharedmodule
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -16,7 +16,8 @@ import { CardComponent } from './components/card/card.component';
     CardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   exports:[
     HomePageComponent
