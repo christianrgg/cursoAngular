@@ -6,7 +6,7 @@ import { ByCountryPageComponent } from './pages/by-country-page/by-country-page.
 import { ByRegionPageComponent } from './pages/by-region-page/by-region-page.component';
 import { CountryPageComponent } from './pages/country-page/country-page.component';
 
-
+// 55. Cambiar el redireccionamiento a by.-capital para cualquier ruta no definida
 const routes: Routes = [
   {
     path: 'by-capital',
@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'by/id',
     component: CountryPageComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'by-capital'
   },
 ]
 

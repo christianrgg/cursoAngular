@@ -5,14 +5,16 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { ContacPageComponent } from './pages/contac-page/contac-page.component';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
 
-
+// 60. Exportar el modulo SearchBoxComponent
 @NgModule({
   declarations: [
     HomePageComponent,
     AboutPageComponent,
     SidebarComponent,
-    ContacPageComponent
+    ContacPageComponent,
+    SearchBoxComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { ContacPageComponent } from './pages/contac-page/contac-page.component';
     HomePageComponent,
     AboutPageComponent,
     SidebarComponent,
-    ContacPageComponent
+    ContacPageComponent,
+    SearchBoxComponent
   ]
 })
 export class SharedModule { }

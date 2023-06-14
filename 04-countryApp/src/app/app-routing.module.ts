@@ -3,13 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './shared/pages/home-page/home-page.component';
 import { AboutPageComponent } from './shared/pages/about-page/about-page.component';
 import { ContacPageComponent } from './shared/pages/contac-page/contac-page.component';
-// 50. Agregar la ruta de countries.
-// 51. Agregar loadchildren y la funcion de carga para las rutas hijas
+// 54. Cambiar el redireccionamiento y comentar el primer roo vacio
 const routes: Routes =[
-  {
-    path: '',
-    component: HomePageComponent,
-  },
+  // {
+  //   path: '',
+  //   component: HomePageComponent,
+  // },
   {
     path: 'about',
     component: AboutPageComponent,
@@ -24,7 +23,7 @@ const routes: Routes =[
   },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'countries',
   },
  ];
 
