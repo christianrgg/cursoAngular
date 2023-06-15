@@ -1,6 +1,3 @@
-// 67. Ir a la siguiente API: https://restcountries.com/#endpoints-capital-city, copiar la url: https://restcountries.com/v3.1/capital/{capital} pegarla en postman y eliminar el ultimo fragmento puedes poner "san" y clic en enviar.
-// 68. Copiar el resultado de la api y  pegarlo en la url "https://app.quicktype.io/" de tipo de datos hacer las configuraciones y pegar aqui.
-
 export interface Country {
   name:         Name;
   tld:          string[];

@@ -10,6 +10,11 @@
 </div>
 <div class="row">
   <div class="col">
-    Tabla de resultados
+    <!-- 76. Construir las celdas con un ngfor -->
+    <ul>
+      <li *ngFor="let country of countries">
+        {{country.capital}} - {{country.population}}
+      </li>
+    </ul>
   </div>
 </div>
