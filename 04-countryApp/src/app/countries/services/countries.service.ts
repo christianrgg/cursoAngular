@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of} from 'rxjs';
 import { Country } from '../interfaces/country';
 
 
@@ -16,7 +16,12 @@ export class CountriesService {
 
   searchCapital(term:string): Observable <Country[]> {
     const url = `${this.apiUrl}/capital/${term}`;
-    return this.http.get<Country[]>(url);
+// 85. Manejo de errores con extensiones reactivas rxjs. La logica es atrapa el error y regresa un arreglo vacio para que se dispare la alerta "No hay paises que mostrar". El error solo mostrarlo entre parentesis sin escribir error.
+//el of construye un observable del argumento que le envian y en lugar del error regresa un observable con arreglo vacio.
+    return this.http.get<Country[]>(url)
+    .pipe(
+      catchError ( () => of([]))
+    );
   }
 
 }
