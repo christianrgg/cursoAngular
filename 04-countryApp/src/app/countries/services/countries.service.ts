@@ -12,7 +12,15 @@ export class CountriesService {
 
   constructor(private http: HttpClient) { }
 
+// 92. Crear un metodo para busqueda por alphacode
+searchCountryByAlphaCode(code:string): Observable <Country[]>{
+  const url = `${this.apiUrl}/alpha/${code}`;
 
+  return this.http.get<Country[]>(url)
+    .pipe(
+      catchError ( () => of([]))
+    );
+}
 
   searchCapital(term:string): Observable <Country[]> {
     const url = `${this.apiUrl}/capital/${term}`;
@@ -21,7 +29,7 @@ export class CountriesService {
       catchError ( () => of([]))
     );
   }
-// 86. Creación de metodos para busquedas por distintos endpoints
+
   searchCountry(term:string):Observable<Country[]>{
     const url = `${this.apiUrl}/name/${term}`;
     return this.http.get<Country[]>(url)
