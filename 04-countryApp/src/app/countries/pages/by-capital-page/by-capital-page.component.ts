@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
   ]
 })
 export class ByCapitalPageComponent {
-// 62. Crear un metodo para recibir el termino de busqueda
   searchByCapital(term:string):void{
     console.log('Desde bay capital page');
     console.log({term});
