@@ -16,8 +16,22 @@ export class CountriesService {
 
   searchCapital(term:string): Observable <Country[]> {
     const url = `${this.apiUrl}/capital/${term}`;
-// 85. Manejo de errores con extensiones reactivas rxjs. La logica es atrapa el error y regresa un arreglo vacio para que se dispare la alerta "No hay paises que mostrar". El error solo mostrarlo entre parentesis sin escribir error.
-//el of construye un observable del argumento que le envian y en lugar del error regresa un observable con arreglo vacio.
+    return this.http.get<Country[]>(url)
+    .pipe(
+      catchError ( () => of([]))
+    );
+  }
+// 86. Creación de metodos para busquedas por distintos endpoints
+  searchCountry(term:string):Observable<Country[]>{
+    const url = `${this.apiUrl}/name/${term}`;
+    return this.http.get<Country[]>(url)
+    .pipe(
+      catchError ( () => of([]))
+    );
+  }
+
+  searchRegion(region:string):Observable<Country[]>{
+    const url = `${this.apiUrl}/region/${region}`;
     return this.http.get<Country[]>(url)
     .pipe(
       catchError ( () => of([]))

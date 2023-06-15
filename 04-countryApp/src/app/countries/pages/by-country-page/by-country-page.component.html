@@ -1,1 +1,16 @@
-<p>by-country-page works!</p>
+<!-- 87 Pegar lo conuntrybycapital y modificar onvalue-->
+<h2>Por Región</h2>
+<hr>
+<div class="row">
+  <div class="col">
+    <shared-search-box
+    placeholder="Búscar por país"
+    (onValue)="searchByCountry($event)"
+    ></shared-search-box>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <countries-table [countries]="countries"></countries-table>
+  </div>
+</div>
