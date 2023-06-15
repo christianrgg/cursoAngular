@@ -1,5 +1,5 @@
-// 58. Crear componente searchComponent como sera compartido va aqui. "ng g c shared/components/searchBox --inline-style --skip-tests", cambiar el nombre del selector
-import { Component, Input } from '@angular/core';
+
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'shared-search-box',
@@ -8,7 +8,17 @@ import { Component, Input } from '@angular/core';
   ]
 })
 export class SearchBoxComponent {
-// 59. Crear el escuchador de eventos para el placeholder
+
 @Input()
   public placeholder:string = '';
+
+
+// 63. Crear un emitidor de eventos para el input
+  @Output()
+  public onValue = new EventEmitter<string>();
+
+// 65. Crear el evento emitValue
+  emitValue(value:string):void{
+    this.onValue.emit(value);
+  }
 }

@@ -1,11 +1,12 @@
-<!-- 56. Construir el HTML -->
 <h2>Por capital</h2>
 <hr>
 <div class="row">
   <div class="col">
-    <!-- SearchBox -->
-    <!-- 61. Llamar por el nombre del selector y agregarle el dato del placeholder -->
-    <shared-search-box placeholder="Búscar por capital"></shared-search-box>
+<!-- 66. Llamar al metodo searchByCapital de capitalpage -->
+    <shared-search-box
+    placeholder="Búscar por capital"
+    (onValue)="searchByCapital($event)"
+    ></shared-search-box>
   </div>
 </div>
 <div class="row">

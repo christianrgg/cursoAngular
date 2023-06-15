@@ -8,7 +8,7 @@ import { CountriesRoutingModule } from './countries-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 
-// 60. Importar todo el sharedmodule
+
 @NgModule({
   declarations: [
     ByCapitalPageComponent,

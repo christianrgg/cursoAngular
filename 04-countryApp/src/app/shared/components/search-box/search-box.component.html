@@ -1,6 +1,9 @@
 <!-- 57. Construir y configurar el input -->
+<!-- 64. Agregar el evento keyup de la tecla enter que llame al metodo emitValue y pasarle como referencia el txtinput.value, agregar el id #txtInput-->
 <input
 type="text"
 [placeholder]="placeholder"
 class="form-control"
+(keyup.enter)="emitValue(txtInput.value)"
+#txtInput
 >
