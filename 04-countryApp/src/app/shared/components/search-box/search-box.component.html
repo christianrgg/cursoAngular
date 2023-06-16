@@ -1,7 +1,10 @@
+<!-- 114. Sacar el valor del evento anterior para el enter y comentarlo -->
+<!-- (keyup.enter)="emitValue(txtInput.value)" -->
+<!-- 116. Probar el metodo creado -->
 <input
 type="text"
 [placeholder]="placeholder"
 class="form-control"
-(keyup.enter)="emitValue(txtInput.value)"
+(keyup)="onKeyPress(txtInput.value)"
 #txtInput
 >

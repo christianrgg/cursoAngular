@@ -2,16 +2,17 @@
 <hr>
 <div class="row">
   <div class="col">
+    <!-- 123.Comentar el onvalue y sustituirlo por ondebounce -->
+    <!-- (onValue)="searchByCapital($event)" -->
     <shared-search-box
     placeholder="Búscar por capital"
-    (onValue)="searchByCapital($event)"
+    (onDebounce)="searchByCapital($event)"
     ></shared-search-box>
   </div>
 </div>
 <div class="row">
   <div class="col">
     <hr>
-    <!-- 113. Agregar un ngif para ver el valor de la propiedad isloading -->
     <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
     <countries-table [countries]="countries"></countries-table>
   </div>
