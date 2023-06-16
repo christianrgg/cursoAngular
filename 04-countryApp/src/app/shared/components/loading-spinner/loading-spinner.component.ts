@@ -1,4 +1,3 @@
-// 105. Generar este componente para el spinner de carga, cambiar el nombre del selector
 import { Component } from '@angular/core';
 
 @Component({
