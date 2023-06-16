@@ -12,27 +12,28 @@ import { Country } from '../../interfaces/country';
 })
 
 export class CountryPageComponent implements OnInit {
+// 99. Crear prpiedad publica country, esta puede ser nulo, asigregar
+  public country?: Country;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private countriesService: CountriesService,
-// 97. Propiedad para sacar a la persona de la pantalla en caso de null
     private router: Router,
     ){}
-// 95. Como es un observable se tiene acceso a los pipes e importar el switchMap que recibe los params y regresa un nuevo observable y desestruturar el id. En el segundo observable cambiar id por country y borrar el contenido
   ngOnInit(): void {
     this.activatedRoute.params
     .pipe(
       switchMap(({id}) => this.countriesService.searchCountryByAlphaCode(id) )
     )
     .subscribe(country => {
-      // console.log({country});
-// 98. Agregar condicion si el pais buscado no existe y si si existe
       if(!country) {
         return this.router.navigateByUrl('');
       }
 
-      console.log('Tenemos un pais');
-      return
+// 100. Asignar la propiedad externa a la propiedad de la clase
+      // console.log('Tenemos un pais');
+      // return
+      return this.country = country;
 
     })
   }

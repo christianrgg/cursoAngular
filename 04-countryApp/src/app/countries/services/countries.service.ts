@@ -12,7 +12,7 @@ export class CountriesService {
 
   constructor(private http: HttpClient) { }
 
-// 96. Regresar un pais y no un arreglo de pasises
+
 searchCountryByAlphaCode(code:string): Observable <Country | null>{
   const url = `${this.apiUrl}/alpha/${code}`;
 
