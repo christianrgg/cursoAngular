@@ -12,7 +12,7 @@ export class CountriesService {
 
   constructor(private http: HttpClient) { }
 
-// 103. Crear metodo privado que reciba la url y devuelva un arreglo de paises, esto para evitar repetir codigo. Agregar operador delay de rxjs
+
   private getCountriesRequest(url:string):Observable<Country[]>{
     return this.http.get<Country[]>(url)
     .pipe(
@@ -31,7 +31,7 @@ searchCountryByAlphaCode(code:string): Observable <Country | null>{
       catchError ( () => of(null))
     );
 }
-// 104. Eliminar codigo y sustituir por la funcion creada y pasarle el url (En los siguientes 3 metodos)
+
   searchCapital(term:string): Observable <Country[]> {
     const url = `${this.apiUrl}/capital/${term}`;
     return this.getCountriesRequest(url);
