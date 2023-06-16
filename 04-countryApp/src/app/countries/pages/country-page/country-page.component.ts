@@ -29,12 +29,7 @@ export class CountryPageComponent implements OnInit {
       if(!country) {
         return this.router.navigateByUrl('');
       }
-
-// 100. Asignar la propiedad externa a la propiedad de la clase
-      // console.log('Tenemos un pais');
-      // return
       return this.country = country;
-
     })
   }
 }
