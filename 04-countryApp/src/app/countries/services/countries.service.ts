@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, map, of} from 'rxjs';
+import { Observable, catchError, delay, map, of} from 'rxjs';
 import { Country } from '../interfaces/country';
 
 
@@ -12,6 +12,15 @@ export class CountriesService {
 
   constructor(private http: HttpClient) { }
 
+// 103. Crear metodo privado que reciba la url y devuelva un arreglo de paises, esto para evitar repetir codigo. Agregar operador delay de rxjs
+  private getCountriesRequest(url:string):Observable<Country[]>{
+    return this.http.get<Country[]>(url)
+    .pipe(
+      catchError ( () => of([])),
+      delay(2000),
+    );
+  }
+
 
 searchCountryByAlphaCode(code:string): Observable <Country | null>{
   const url = `${this.apiUrl}/alpha/${code}`;
@@ -22,29 +31,20 @@ searchCountryByAlphaCode(code:string): Observable <Country | null>{
       catchError ( () => of(null))
     );
 }
-
+// 104. Eliminar codigo y sustituir por la funcion creada y pasarle el url (En los siguientes 3 metodos)
   searchCapital(term:string): Observable <Country[]> {
     const url = `${this.apiUrl}/capital/${term}`;
-    return this.http.get<Country[]>(url)
-    .pipe(
-      catchError ( () => of([]))
-    );
+    return this.getCountriesRequest(url);
   }
 
   searchCountry(term:string):Observable<Country[]>{
     const url = `${this.apiUrl}/name/${term}`;
-    return this.http.get<Country[]>(url)
-    .pipe(
-      catchError ( () => of([]))
-    );
+    return this.getCountriesRequest(url);
   }
 
   searchRegion(region:string):Observable<Country[]>{
     const url = `${this.apiUrl}/region/${region}`;
-    return this.http.get<Country[]>(url)
-    .pipe(
-      catchError ( () => of([]))
-    );
+    return this.getCountriesRequest(url);
   }
 
 }

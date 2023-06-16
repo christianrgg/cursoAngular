@@ -12,7 +12,6 @@ import { Country } from '../../interfaces/country';
 })
 
 export class CountryPageComponent implements OnInit {
-// 99. Crear prpiedad publica country, esta puede ser nulo, asigregar
   public country?: Country;
 
   constructor(
