@@ -1,13 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, delay, map, of} from 'rxjs';
-import { Country } from '../interfaces/country';
+import { Country } from '../interfaces/country.interface';
+import { CacheStore } from '../interfaces/cache-store.interface';
 
 
 @Injectable({providedIn: 'root'})
 export class CountriesService {
 
   private apiUrl: string = 'https://restcountries.com/v3.1';
+
+  // 137. Crear una propiedad para almacenar el cache del termino de busqueda y los countries que arroje para cada pagina
+  // 144. Agregar el tipo de interface cacheStore
+  public cacheStore: CacheStore  = {
+    byCapital: { term:'', countries: [] },
+    byCountries: { term:'', countries: [] },
+    byRegion: { region:'', countries: [] }
+
+  }
 
 
   constructor(private http: HttpClient) { }
