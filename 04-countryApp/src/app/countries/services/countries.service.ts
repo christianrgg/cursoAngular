@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, delay, map, of} from 'rxjs';
+import { Observable, catchError, delay, map, of, tap} from 'rxjs';
 import { Country } from '../interfaces/country.interface';
 import { CacheStore } from '../interfaces/cache-store.interface';
 
@@ -10,8 +10,6 @@ export class CountriesService {
 
   private apiUrl: string = 'https://restcountries.com/v3.1';
 
-  // 137. Crear una propiedad para almacenar el cache del termino de busqueda y los countries que arroje para cada pagina
-  // 144. Agregar el tipo de interface cacheStore
   public cacheStore: CacheStore  = {
     byCapital: { term:'', countries: [] },
     byCountries: { term:'', countries: [] },
@@ -44,7 +42,11 @@ searchCountryByAlphaCode(code:string): Observable <Country | null>{
 
   searchCapital(term:string): Observable <Country[]> {
     const url = `${this.apiUrl}/capital/${term}`;
-    return this.getCountriesRequest(url);
+// 145. Colocar un pipe y tap para flujo de datos y realizar almacenamiento en cache de los paises por su capital
+    return this.getCountriesRequest(url)
+    .pipe (
+      tap (countries => this.cacheStore.byCapital = {term, countries})
+    );
   }
 
   searchCountry(term:string):Observable<Country[]>{

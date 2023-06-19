@@ -16,7 +16,9 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
 // 125. Manejar el ondestroit con una propiedad y colocarla de forma condicional porque an algun momento no hay subcripciones
   private debouncerSuscription?: Subscription
 
-
+// 150. Crear propiedad para recibir initialvalue
+  @Input()
+  public initialValue:string = '';
 
   @Input()
   public placeholder:string = '';

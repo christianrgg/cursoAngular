@@ -1,6 +1,8 @@
+<!-- 151. Colocar la propidad initial value en el input -->
 <input
 type="text"
 [placeholder]="placeholder"
+[value] = "initialValue"
 class="form-control"
 (keyup)="onKeyPress(txtInput.value)"
 #txtInput
