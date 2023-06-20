@@ -18,8 +18,23 @@ export class CountriesService {
 
   }
 
+  // 148. llamar el cargar local storage
+  constructor(private http: HttpClient) {
+    this.loadFromLocalStorage();
+  }
 
-  constructor(private http: HttpClient) { }
+  // 149. Crear nuevos metodos para almacenar cache en local storage
+  private saveToLocalStorage(){
+    localStorage.setItem('cacheStore', JSON.stringify(this.cacheStore))
+  }
+
+  private loadFromLocalStorage(){
+    if (!localStorage.getItem('cacheStore')) return;
+
+    this.cacheStore = JSON.parse(localStorage.getItem('cacheStore')!)
+  }
+
+
 
 
   private getCountriesRequest(url:string):Observable<Country[]>{
@@ -46,23 +61,26 @@ searchCountryByAlphaCode(code:string): Observable <Country | null>{
 // 145. Colocar un pipe y tap para flujo de datos y realizar almacenamiento en cache de los paises por su capital
     return this.getCountriesRequest(url)
     .pipe (
-      tap (countries => this.cacheStore.byCapital = {term, countries})
+      tap (countries => this.cacheStore.byCapital = {term, countries}),
+      tap(() => this.saveToLocalStorage())
     );
   }
-
+  // 146.
   searchCountry(term:string):Observable<Country[]>{
     const url = `${this.apiUrl}/name/${term}`;
     return this.getCountriesRequest(url)
     .pipe (
-      tap (countries => this.cacheStore.byCountries = {term, countries})
+      tap (countries => this.cacheStore.byCountries = {term, countries}),
+      tap(() => this.saveToLocalStorage())
     );
   }
-
+   // 147.
   searchRegion(region:Region):Observable<Country[]>{
     const url = `${this.apiUrl}/region/${region}`;
     return this.getCountriesRequest(url)
     .pipe (
-      tap (countries => this.cacheStore.byRegion = {region, countries})
+      tap (countries => this.cacheStore.byRegion = {region, countries}),
+      tap(() => this.saveToLocalStorage())
     );
   }
 
