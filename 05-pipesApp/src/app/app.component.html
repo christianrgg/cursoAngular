@@ -1,11 +1,9 @@
 <router-outlet></router-outlet>
 
-<h1>{{title}}</h1>
-<!-- 1. Pipe uppercase "TODO A MAYUSCULA"-->
-<h1>{{title | uppercase}}</h1>
-<!-- 2. Pipe lowercase "TODO A MINUSCULA"-->
-<h1>{{title | lowercase}}</h1>
-<!-- 3. Pipe titlecase "PRIMERA LETRA CAPITALIZADA"-->
-<h1>{{title | titlecase}}</h1>
-<!-- 4. Pipe slice "Corta una propiedad: punto inicial, punto final"-->
-<h1>{{title | slice:0:6}}</h1>
+<!-- 5. Hacer instalación de prime y icon npm install primeng & npm install primeicons    -->
+<!-- 6. En el archivo angular.json agregar en los styles agregar los siguientes estilos               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/primeng.min.css"    -->
+<button pButton>Hola mundo</button>
+<p-button>Otro boton</p-button>
+<p-button label="Submit" icon="pi pi-check"></p-button>
