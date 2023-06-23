@@ -20,4 +20,38 @@
       {{fullName}} ---> {{fullName | titlecase}}
     </p-card>
   </div>
+  <div class="col-12 md:col-6">
+    <p-card header="Data pipe">
+      <ol>
+        <li>Fecha</li>
+        <li>Fecha | Date</li>
+        <li>Fecha | Date: 'short'</li>
+        <li>Fecha | Date: 'long'</li>
+        <li>Fecha | Date: 'MMMM'</li>
+        <li>Fecha | Date: 'MMMM dd, yyyy'</li>
+      </ol>
+      <hr>
+      <ol>
+        <li>Fecha | date:'long':'GMT-6' </li>
+        <li>Fecha | date:'long':'GMT-4'</li>
+      </ol>
+    </p-card>
+  </div>
+  <div class="col-12 md:col-6">
+    <p-card header="Data pipe">
+      <ol>
+        <li>{{customDate}}</li>
+        <li>{{customDate | date}}</li>
+        <li>{{customDate | date:'short'}}</li>
+        <li>{{customDate | date:'long'}}</li>
+        <li>{{customDate | date:'MMMM'}}</li>
+        <li>{{customDate | date:'MMMM dd, yyyy'}}</li>
+      </ol>
+      <hr>
+      <ol>
+        <li>{{customDate | date:'long':'GMT-6'}} </li>
+        <li>{{customDate | date:'long':'GMT-4'}}</li>
+      </ol>
+    </p-card>
+  </div>
 </div>
