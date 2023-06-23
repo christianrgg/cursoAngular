@@ -1,1 +1,23 @@
-<p>numbers-page works!</p>
+<p-panel header="Pipes numéricos" class="p-1">
+  <p>
+    Pipes incluidos en Angular - Usualmente en el common
+  </p>
+</p-panel>
+
+<div class="grid">
+  <div class="col-12 md:col-4">
+    <p-card header="Ventas antes de impuestos" subheader="2023">
+      {{totalSells*1.16 | number: '1.2-2'}}
+    </p-card>
+  </div>
+  <div class="col-12 md:col-4">
+    <p-card header="Ventas despues de impuestos" subheader="2023">
+      {{totalSells | currency:'MXN':'symbol':'1.4-4'}}
+    </p-card>
+  </div>
+  <div class="col-12 md:col-4">
+    <p-card header="Utilidad porcentual" subheader="2023">
+      {{percent | percent: '1.2-2'}}
+    </p-card>
+  </div>
+</div>
