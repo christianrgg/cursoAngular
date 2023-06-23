@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 // 11. Importar los modulos que se usaran de primeng y exportarlos
 import { MenuModule } from 'primeng/menu';
+import { MenubarModule } from 'primeng/menubar';
 
 
 
@@ -9,7 +10,8 @@ import { MenuModule } from 'primeng/menu';
 
 @NgModule({
   exports: [
-    MenuModule
+    MenuModule,
+    MenubarModule
   ]
 })
 export class PrimeNgModule { }
