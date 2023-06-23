@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-// 9. Importar el modulo de botones y agregarlo a los imports
-import { ButtonModule } from 'primeng/button';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+// 12. Importar el sharedmodule
+import { SharedModule } from './shared/shared.module';
+// 18. Instalar e Importar el modulo de animaciones
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ButtonModule
+    SharedModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
