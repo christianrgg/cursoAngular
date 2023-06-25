@@ -11,6 +11,7 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { OrderComponent } from './pages/order/order.component';
 import { ToggleCasePipe } from './pipes/toggle-case.pipe';
 import { canFlyPipe } from './pipes/can-Fly.pipe';
+import { SortByPipe } from './pipes/sort-by.pipe';
 
 // 4. Declarar el pipe
 @NgModule({
@@ -20,7 +21,8 @@ import { canFlyPipe } from './pipes/can-Fly.pipe';
     UncommonPageComponent,
     OrderComponent,
     ToggleCasePipe,
-    canFlyPipe
+    canFlyPipe,
+    SortByPipe
   ],
   imports: [
     CommonModule,
