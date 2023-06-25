@@ -9,7 +9,8 @@ import { NumbersPageComponent } from './pages/numbers-page/numbers-page.componen
 import { UncommonPageComponent } from './pages/uncommon-page/uncommon-page.component';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { OrderComponent } from './pages/order/order.component';
-import { ToggleCasePipe } from './pages/uncommon-page/toggle-case.pipe';
+import { ToggleCasePipe } from './pipes/toggle-case.pipe';
+import { canFlyPipe } from './pipes/can-Fly.pipe';
 
 // 4. Declarar el pipe
 @NgModule({
@@ -18,8 +19,8 @@ import { ToggleCasePipe } from './pages/uncommon-page/toggle-case.pipe';
     NumbersPageComponent,
     UncommonPageComponent,
     OrderComponent,
-    ToggleCasePipe
-
+    ToggleCasePipe,
+    canFlyPipe
   ],
   imports: [
     CommonModule,
