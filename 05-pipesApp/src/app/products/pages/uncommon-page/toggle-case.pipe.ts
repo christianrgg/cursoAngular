@@ -1,6 +1,3 @@
-// 1. Crear el archivo con la terminarción .pipe.ts con a-pipe
-// 2. Agregar el nobre del pipe y nombre de la clase
-// 3. Modificar el el value y colocarle string
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
@@ -8,7 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 
 export class ToggleCasePipe implements PipeTransform {
-  transform(value: string):string {
-    return value.toUpperCase();
+  transform(value: string, toUpper: boolean = false):string {
+    console.log({value, toUpper});
+    return (toUpper)
+    ? value.toUpperCase()
+    : value.toLowerCase();
   }
 }
