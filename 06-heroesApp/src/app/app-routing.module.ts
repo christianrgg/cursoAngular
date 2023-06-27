@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404PageComponent } from './shared/pages/error404-page/error404-page.component';
 
-// 23. Agregar rutas para auth y heroes y
+
 const routes: Routes = [
   {
     path: 'auth',
