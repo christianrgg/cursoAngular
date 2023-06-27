@@ -1,4 +1,3 @@
-// 17. ng g c heroes/pages/newPage --inline-style --skip-tests
 import { Component } from '@angular/core';
 
 @Component({

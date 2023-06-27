@@ -1,4 +1,3 @@
-// 13. Generar componente ng g c auth/pages/registerPage --inline-style --skip-tests
 import { Component } from '@angular/core';
 
 @Component({

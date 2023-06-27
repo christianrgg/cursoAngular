@@ -1,11 +1,17 @@
-// 6. crear el routing manualmente a- module, depurar lo necesario
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 
-// 7. Crear la constante Routes e importar la interface
-const routes: Routes = [];
-// 8. Importar el routermodule y agregar forchild
-// 9. Exportar el routermodule
+
+// 21. Agregar las rutas considerando diferentes vistas dentro del spa
+const routes: Routes = [
+  // localhost:4200/auth/
+  {
+    path:'',
+    component: LayoutPageComponent
+  }
+];
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],

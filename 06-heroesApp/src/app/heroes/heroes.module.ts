@@ -1,4 +1,3 @@
-// 2. Generar modulo con routing ng g m heroes --routing
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 

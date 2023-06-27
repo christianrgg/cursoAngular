@@ -1,4 +1,3 @@
-// 18. Generar componente ng g c heroes/pages/searchPage --inline-style --skip-tests
 import { Component } from '@angular/core';
 
 @Component({
