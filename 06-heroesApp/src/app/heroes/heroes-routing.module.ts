@@ -6,7 +6,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { ListPageComponent } from './pages/list-page/list-page.component';
 import { HeroPageComponent } from './pages/hero-page/hero-page.component';
 
-// 25. Agregar ruta hija del search
+
 const routes: Routes = [
   {
     path:'',
