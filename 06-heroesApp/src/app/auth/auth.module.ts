@@ -6,7 +6,6 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { MaterialModule } from '../material/material.module';
 
-// 30. Importar el modulo de materialmodule
 @NgModule({
   declarations: [
     LayoutPageComponent,
