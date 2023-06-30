@@ -1,4 +1,3 @@
-// 29. Agregar los modulos que se utilizaran en angularmaterial
 import { NgModule } from '@angular/core';
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
