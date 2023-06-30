@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   ]
 })
 
-// 37. Crear propiedad del menu.
+
 export class LayoutPageComponent {
   public sidebarItems = [
     {label: 'Listado', icon:'label', url:'./list'},

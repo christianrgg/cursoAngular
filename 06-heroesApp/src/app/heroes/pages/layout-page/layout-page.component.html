@@ -1,4 +1,3 @@
-<!-- 36. Construcción de HTML -->
 <mat-sidenav-container fullscreen>
   <mat-sidenav #sidenav mode="push" [ngStyle]="{width:'250px'}">
     <mat-toolbar>
@@ -8,7 +7,7 @@
         <mat-icon>menu</mat-icon>
       </button>
     </mat-toolbar>
-    <!-- 38. Crear listado de menu con propiedad sidebarItems -->
+
     <mat-nav-list>
       <mat-list-item *ngFor="let item of sidebarItems"
       [routerLink]="item.url"
