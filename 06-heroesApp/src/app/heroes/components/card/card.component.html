@@ -3,7 +3,7 @@
     <mat-card-title>{{hero.superhero}}</mat-card-title>
     <mat-card-subtitle>{{hero.alter_ego}}</mat-card-subtitle>
   </mat-card-header>
-<!-- 58. Crear el html de la imagem recibiendo heroes y pasandolo al pipe heroImage-->
+
   <img mat-card-image [src]="hero | heroImage" [alt]="hero.superhero">
 
   <mat-card-content class="mt-2">
