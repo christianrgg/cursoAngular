@@ -7,8 +7,7 @@ import { Hero } from '../../interfaces/hero.interface';
 })
 
 
-// 56. Implementar la interfaz oninit y cambiar nombre de selector
-// 55. Recibir el hero
+
 export class CardComponent implements OnInit {
   @Input()
   public hero!: Hero;
