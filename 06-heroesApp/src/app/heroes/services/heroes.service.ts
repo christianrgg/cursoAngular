@@ -16,7 +16,7 @@ export class HeroesService {
     return this.httpClient.get<Hero[]>(`${this.baseUrl}/heroes`);
   }
 
-  // 63. Crear un nuevo servicio para traer un heroe por id
+
 
   getHeroById(id: string): Observable<Hero | undefined> {
     return this.httpClient.get<Hero>(`${this.baseUrl}/heroes/${id}`)
