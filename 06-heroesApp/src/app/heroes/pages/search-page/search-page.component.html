@@ -1,1 +1,34 @@
-<p>search-page works!</p>
+<!-- 68. Construir HTML -->
+<div class="flex flex-column p-2">
+  <h3>Buscador</h3>
+  <mat-form-field>
+    <mat-label>Buscador de héroes</mat-label>
+    <!-- 71. Conectar el reactiveform [formControl]="searchInput"-->
+    <!-- 76. Mostrar el arreglo de sugerencias en HTML en el input colocar [matAutocomplete]="auto", y agregar la parte de la documentacion de mat-autocomplete y corregir los valores por hero, heroes, hero.superhero-->
+    <input
+      type="text"
+      matInput
+      [formControl]="searchInput"
+      (input)="searchHero()"
+      [matAutocomplete]="auto"
+    />
+    <!-- 78. Agregar opciones para opciones seleccionadas -->
+    <mat-autocomplete #auto="matAutocomplete"
+    (optionSelected)="onSelectedOption($event)"
+    >
+      <mat-option *ngFor="let hero of heroes" [value]="hero">
+        {{hero.superhero}}
+      </mat-option>
+      <!-- 77. Agregar condicones para mostrar el no se encontraron resultados -->
+      <mat-option
+      *ngIf="heroes.length === 0 && searchInput.value && searchInput.value.length > 0"
+      >
+        No se encontro nada con el término {{searchInput.value}}
+      </mat-option>
+
+    </mat-autocomplete>
+
+
+  </mat-form-field>
+  {{selectedHero | json}}
+</div>
