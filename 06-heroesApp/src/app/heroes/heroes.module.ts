@@ -12,7 +12,7 @@ import { CardComponent } from './components/card/card.component';
 import { HeroImagePipe } from './pipes/hero-image.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 
-// 70. Importar el ReactiveFormsModule
+
 @NgModule({
   declarations: [
     HeroPageComponent,

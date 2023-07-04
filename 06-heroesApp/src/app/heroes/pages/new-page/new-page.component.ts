@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class NewPageComponent {
 
+  // 84. Construcción de propieda para el selec
+  public publishers = [
+    {id: 'DC Comics', desc: 'DC - Comics'},
+    {id: 'Marvel Comics', desc: 'Marvel - Comics'},
+  ]
+
 }

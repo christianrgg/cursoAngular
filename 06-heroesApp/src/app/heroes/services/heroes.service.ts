@@ -16,8 +16,6 @@ export class HeroesService {
     return this.httpClient.get<Hero[]>(`${this.baseUrl}/heroes`);
   }
 
-
-
   getHeroById(id: string): Observable<Hero | undefined> {
     return this.httpClient.get<Hero>(`${this.baseUrl}/heroes/${id}`)
     .pipe(
@@ -25,13 +23,9 @@ export class HeroesService {
     )
   }
 
-  // 67. Hacer la consulta en posmat http://localhost:3000/heroes?q=b&_limit=6 jugar, trabajar en el termino de busqueda. con el siguiente metodo. Va a recibir un dato de búsqueda de tipo string y regresara un arreglo de heroes o de heroes vacio.
-
   getSuggestions(query: string):Observable<Hero[]>{
     return this.httpClient.get<Hero[]>(`${this.baseUrl}/heroes?q=${query}&_limit=6`)
   }
-
-
 
 }
 
