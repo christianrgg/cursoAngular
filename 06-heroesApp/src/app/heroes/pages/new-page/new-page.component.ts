@@ -10,7 +10,6 @@ import { Publisher } from '../../interfaces/hero.interface';
 })
 export class NewPageComponent {
 
-  // 89. Crear propiedad para manejar un formulario reactivo y definir dentro del las propiedades que queremos que maneje.
   public heroForm = new FormGroup({
     id:                new FormControl<string>(''),
     superhero:         new FormControl<string>('', {nonNullable: true}),
@@ -26,5 +25,13 @@ export class NewPageComponent {
     {id: 'DC Comics', desc: 'DC - Comics'},
     {id: 'Marvel Comics', desc: 'Marvel - Comics'},
   ]
+
+  // 92. Crear metodo para el submit
+  onSubmit():void{
+    console.log({
+      formIsValid: this.heroForm.valid,
+      value: this.heroForm.value,
+    });
+  }
 
 }

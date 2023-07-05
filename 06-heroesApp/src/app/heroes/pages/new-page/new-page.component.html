@@ -4,17 +4,21 @@
   <small>Superman</small>
 </h1>
 <mat-divider class="mb-2"></mat-divider>
-<div class="grid">
+<!-- 90. Para conectar Cambiar el div por form, y agregar [formGroup] y apuntar al formulario elaborado -->
+<!-- 93. Conectar el metodo creado onsubmit y de igual forma en el boton de guardar-->
+<form class="grid" [formGroup]="heroForm" (ngSubmit)="onSubmit()">
   <div class="col-12 sm:col-6">
     <mat-card>
       <mat-card-content>
         <div class="grid">
           <mat-form-field class="col-12 sm:col-6">
             <mat-label>Super héroe</mat-label>
+            <!-- 91 Conectar input por formcontrolname al formgroup -->
             <input
             matInput
             type="text"
             required
+            formControlName="superhero"
             />
           </mat-form-field>
           <mat-form-field class="col-12 sm:col-6">
@@ -23,6 +27,7 @@
             matInput
             type="text"
             required
+            formControlName="alter_ego"
             />
           </mat-form-field>
           <mat-form-field class="col-12">
@@ -31,6 +36,7 @@
             matInput
             type="text"
             required
+            formControlName="first_appearance"
             />
           </mat-form-field>
           <mat-form-field class="col-12">
@@ -39,11 +45,15 @@
             matInput
             type="text"
             required
+            formControlName="characters"
             />
           </mat-form-field>
           <mat-form-field class="col-12">
             <mat-label>Creador</mat-label>
-            <mat-select required="">
+            <mat-select
+            required=""
+            formControlName="publisher"
+            >
               <mat-option *ngFor="let publisher of publishers"
               [value]="publisher.id"
               >
@@ -51,6 +61,15 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-form-field class="col-12">
+            <mat-label>Imagen Alternativa</mat-label>
+            <input
+            matInput
+            type="text"
+            formControlName="alt_img"
+            />
+          </mat-form-field>
+
             <button
             mat-flat-button
             color="warn"
@@ -61,6 +80,7 @@
             <button
             mat-flat-button
             color="primary"
+            (ngSubmit)="onSubmit()"
             >
             <mat-icon>save</mat-icon>
             Guardar
@@ -74,4 +94,4 @@
       <img src="" alt="imagen del heroe" mat-card-image/>
     </mat-card>
   </div>
-</div>
+</form>
