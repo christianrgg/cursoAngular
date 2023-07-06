@@ -26,10 +26,10 @@ export class NewPageComponent {
     {id: 'DC Comics', desc: 'DC - Comics'},
     {id: 'Marvel Comics', desc: 'Marvel - Comics'},
   ]
-  // 94. Inyectar el servicio para el crud
-  constructor(private HeroesService: HeroesService){}
 
-  // 96. Hacer un getter para obtener el valor del formulario heroForm, que representa los datos de un objeto Hero. Luego, realiza una conversión de tipo y devuelve el objeto Hero.
+  constructor(private heroesService: HeroesService){}
+
+
   get currentHero():Hero {
     const hero = this.heroForm.value as Hero;
     return hero;
@@ -37,11 +37,22 @@ export class NewPageComponent {
 
 
   onSubmit():void{
-    // 95. Hacer validación para el caso de formulario invalido
+
     if(this.heroForm.invalid) return;
 
+    // 97. crear validación: si tiene un id quiere actualizar, si no tiene quiere crear.
+    if(this.currentHero.id){
+      this.heroesService.updatedHero(this.currentHero)
+      .subscribe(hero => {
+        // mostrar snackbar
+      });
+      return;
+    }
 
-    // this.HeroesService.updatedHero(this.heroForm.value)
+    this.heroesService.addHero(this.currentHero)
+    .subscribe(hero =>{
+      // mostrar snackbar, y navegar a /heroes/edit/hero.id
+    })
   }
 
 }
