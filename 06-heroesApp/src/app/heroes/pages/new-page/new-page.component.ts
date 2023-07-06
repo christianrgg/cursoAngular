@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Publisher } from '../../interfaces/hero.interface';
+import { Hero, Publisher } from '../../interfaces/hero.interface';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-new-page',
@@ -25,13 +26,22 @@ export class NewPageComponent {
     {id: 'DC Comics', desc: 'DC - Comics'},
     {id: 'Marvel Comics', desc: 'Marvel - Comics'},
   ]
+  // 94. Inyectar el servicio para el crud
+  constructor(private HeroesService: HeroesService){}
 
-  // 92. Crear metodo para el submit
+  // 96. Hacer un getter para obtener el valor del formulario heroForm, que representa los datos de un objeto Hero. Luego, realiza una conversión de tipo y devuelve el objeto Hero.
+  get currentHero():Hero {
+    const hero = this.heroForm.value as Hero;
+    return hero;
+  }
+
+
   onSubmit():void{
-    console.log({
-      formIsValid: this.heroForm.valid,
-      value: this.heroForm.value,
-    });
+    // 95. Hacer validación para el caso de formulario invalido
+    if(this.heroForm.invalid) return;
+
+
+    // this.HeroesService.updatedHero(this.heroForm.value)
   }
 
 }

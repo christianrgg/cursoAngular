@@ -4,8 +4,6 @@
   <small>Superman</small>
 </h1>
 <mat-divider class="mb-2"></mat-divider>
-<!-- 90. Para conectar Cambiar el div por form, y agregar [formGroup] y apuntar al formulario elaborado -->
-<!-- 93. Conectar el metodo creado onsubmit y de igual forma en el boton de guardar-->
 <form class="grid" [formGroup]="heroForm" (ngSubmit)="onSubmit()">
   <div class="col-12 sm:col-6">
     <mat-card>
@@ -13,7 +11,6 @@
         <div class="grid">
           <mat-form-field class="col-12 sm:col-6">
             <mat-label>Super héroe</mat-label>
-            <!-- 91 Conectar input por formcontrolname al formgroup -->
             <input
             matInput
             type="text"
@@ -91,7 +88,11 @@
   </div>
   <div class="col-12 sm:col-6">
     <mat-card>
-      <img src="" alt="imagen del heroe" mat-card-image/>
+      <img [src]="currentHero | heroImage" alt="imagen del heroe" mat-card-image/>
     </mat-card>
   </div>
 </form>
+
+<pre>
+  {{currentHero | json}}
+</pre>
