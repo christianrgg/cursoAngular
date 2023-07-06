@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Hero, Publisher } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-new-page',
@@ -9,7 +11,9 @@ import { HeroesService } from '../../services/heroes.service';
   styles: [
   ]
 })
-export class NewPageComponent {
+
+// 98. Implementar el onInit
+export class NewPageComponent implements OnInit {
 
   public heroForm = new FormGroup({
     id:                new FormControl<string>(''),
@@ -27,7 +31,29 @@ export class NewPageComponent {
     {id: 'Marvel Comics', desc: 'Marvel - Comics'},
   ]
 
-  constructor(private heroesService: HeroesService){}
+  // 99. Inyectar las propiedades en el constructor activador de rutas y rutas.
+  constructor(
+    private heroesService: HeroesService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+    ){}
+
+  // 100. Crear validaciones para si la url dice que esta editando(edit) entonces no haga nada y cree un nuevo heroes y para el caso que si agregue los valores al formulario
+  ngOnInit(): void {
+    if(!this.router.url.includes('edit')) return;
+
+    this.activatedRoute.params
+    .pipe(
+      switchMap(({id})=> this.heroesService.getHeroById(id)),
+    ).subscribe(hero =>{
+      if(!hero) {
+        return this.router.navigateByUrl('/');
+      }
+      this.heroForm.reset(hero);
+      return;
+    })
+
+  }
 
 
   get currentHero():Hero {
@@ -40,7 +66,6 @@ export class NewPageComponent {
 
     if(this.heroForm.invalid) return;
 
-    // 97. crear validación: si tiene un id quiere actualizar, si no tiene quiere crear.
     if(this.currentHero.id){
       this.heroesService.updatedHero(this.currentHero)
       .subscribe(hero => {
