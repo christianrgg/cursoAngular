@@ -8,7 +8,6 @@ import { Inject } from '@angular/core';
   templateUrl: './confirm-dialog.component.html'
 })
 export class ConfirmDialogComponent {
-  // 113. Hacer la inyecion y la importacion del servicio.
   constructor(
     public dialogRef: MatDialogRef<ConfirmDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Hero) { }

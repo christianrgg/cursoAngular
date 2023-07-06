@@ -1,6 +1,5 @@
-<!-- 112. Construir html -->
 <h2 mat-dialog-title>Esta seguro de eliminar este elemento?</h2>
-<mat-dialog-content>Esto eliminará el elemento que está actualmente en esta página y no se puede deshacer.</mat-dialog-content>
+<mat-dialog-content>Esto eliminará a {{data.superhero}} que está actualmente en esta página y no se puede deshacer.</mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button [mat-dialog-close]="false">Cancelar</button>
   <button mat-button [mat-dialog-close]="true" color="primary">Eliminar</button>
