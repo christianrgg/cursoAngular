@@ -5,6 +5,8 @@ import { HeroesService } from '../../services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-new-page',
@@ -32,14 +34,13 @@ export class NewPageComponent implements OnInit {
     {id: 'Marvel Comics', desc: 'Marvel - Comics'},
   ]
 
-
-
-  // 101. Inyectar servicio de snackbars
+  //107. Inyectar el servicio matdialog
   constructor(
     private heroesService: HeroesService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private dialog: MatDialog
     ){}
 
   ngOnInit(): void {
@@ -69,7 +70,6 @@ export class NewPageComponent implements OnInit {
 
     if(this.heroForm.invalid) return;
 
-    // 103. Llamar al snackbar y pasarle el mensaje
     if(this.currentHero.id){
       this.heroesService.updatedHero(this.currentHero)
       .subscribe(hero => {
@@ -78,7 +78,6 @@ export class NewPageComponent implements OnInit {
       return;
     }
 
-    // 104. Llamar al snackbar y pasarle el mensaje y redireccionar
     this.heroesService.addHero(this.currentHero)
     .subscribe(hero =>{
       this.router.navigate(['/heroes/edit',hero.id])
@@ -86,7 +85,26 @@ export class NewPageComponent implements OnInit {
     })
   }
 
-  // 102. Crear metodo para mostrar el snackbar pasandole un mensaje.
+  // 108. Crear metodo para confirmar borrado de heroe, ya tiene todo del formulario
+  onDeleteHero(){
+    if(!this.currentHero.id) throw Error('Hero id is required');
+
+    // 109. Copiar el codigo de angular material
+    // 110. Crear el componente confirmDialog y agregarlo
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+        data: this.heroForm.value
+      });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // 114. Si es falso
+      if(!result) return;
+      // 115. si es verdadero
+      this.heroesService.deletedHeroById(this.currentHero.id);
+      //116. Sacar a la ruta listado
+      this.router.navigate(['/heroes'])
+    });
+  }
+
   showSnackBar(message: string):void{
     this.snackbar.open(message, 'done'),{
       duration: 2500,

@@ -1,4 +1,3 @@
-<!-- 106.  Agregar expresion para cuando diga editar o agregar-->
 <h1>
   {{currentHero.id ? 'Editar': 'Agregar héroe'}}
   <small *ngIf="currentHero.id">{{currentHero.superhero}}</small>
@@ -66,9 +65,10 @@
             formControlName="alt_img"
             />
           </mat-form-field>
-<!-- 105 Agregar condicional para que el boton aparezca o desaparezca -->
+          <!-- 111. Conectar boton -->
             <button
             *ngIf="currentHero.id"
+            (click)="onDeleteHero()"
             mat-flat-button
             color="warn"
             >
