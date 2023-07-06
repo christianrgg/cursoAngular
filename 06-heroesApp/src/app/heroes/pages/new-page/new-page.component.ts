@@ -4,6 +4,7 @@ import { Hero, Publisher } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-new-page',
@@ -12,7 +13,7 @@ import { switchMap } from 'rxjs';
   ]
 })
 
-// 98. Implementar el onInit
+
 export class NewPageComponent implements OnInit {
 
   public heroForm = new FormGroup({
@@ -31,14 +32,16 @@ export class NewPageComponent implements OnInit {
     {id: 'Marvel Comics', desc: 'Marvel - Comics'},
   ]
 
-  // 99. Inyectar las propiedades en el constructor activador de rutas y rutas.
+
+
+  // 101. Inyectar servicio de snackbars
   constructor(
     private heroesService: HeroesService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private snackbar: MatSnackBar
     ){}
 
-  // 100. Crear validaciones para si la url dice que esta editando(edit) entonces no haga nada y cree un nuevo heroes y para el caso que si agregue los valores al formulario
   ngOnInit(): void {
     if(!this.router.url.includes('edit')) return;
 
@@ -66,18 +69,28 @@ export class NewPageComponent implements OnInit {
 
     if(this.heroForm.invalid) return;
 
+    // 103. Llamar al snackbar y pasarle el mensaje
     if(this.currentHero.id){
       this.heroesService.updatedHero(this.currentHero)
       .subscribe(hero => {
-        // mostrar snackbar
+        this.showSnackBar(`${hero.superhero} updated!`)
       });
       return;
     }
 
+    // 104. Llamar al snackbar y pasarle el mensaje y redireccionar
     this.heroesService.addHero(this.currentHero)
     .subscribe(hero =>{
-      // mostrar snackbar, y navegar a /heroes/edit/hero.id
+      this.router.navigate(['/heroes/edit',hero.id])
+      this.showSnackBar(`${hero.superhero} created!`)
     })
+  }
+
+  // 102. Crear metodo para mostrar el snackbar pasandole un mensaje.
+  showSnackBar(message: string):void{
+    this.snackbar.open(message, 'done'),{
+      duration: 2500,
+    }
   }
 
 }

@@ -1,7 +1,7 @@
+<!-- 106.  Agregar expresion para cuando diga editar o agregar-->
 <h1>
-  Editar/Agregar
-  Héroe
-  <small>Superman</small>
+  {{currentHero.id ? 'Editar': 'Agregar héroe'}}
+  <small *ngIf="currentHero.id">{{currentHero.superhero}}</small>
 </h1>
 <mat-divider class="mb-2"></mat-divider>
 <form class="grid" [formGroup]="heroForm" (ngSubmit)="onSubmit()">
@@ -66,8 +66,9 @@
             formControlName="alt_img"
             />
           </mat-form-field>
-
+<!-- 105 Agregar condicional para que el boton aparezca o desaparezca -->
             <button
+            *ngIf="currentHero.id"
             mat-flat-button
             color="warn"
             >
