@@ -25,7 +25,9 @@
       </button>
 
       <span class="spacer"></span>
-      <button mat-button>
+      <span>{{user?.email}}</span>
+      <!-- 126. Hacer que el boton implemente el metodo onLogout -->
+      <button mat-button (click)="onLogout()">
         Logout
       </button>
     </mat-toolbar>
