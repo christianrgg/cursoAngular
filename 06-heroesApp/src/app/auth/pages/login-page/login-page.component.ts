@@ -10,13 +10,11 @@ import { Router } from '@angular/router';
 })
 export class LoginPageComponent {
 
-  //126. Inyectar el servicio autservice y de Router
   constructor(
     private authService: AuthService,
     private router: Router
     ){}
 
-  //125. Crear el metodo onlogin
   onLogin():void {
     this.authService.login('token','agarga.ahahah.hdhdhdh')
     .subscribe(user =>{

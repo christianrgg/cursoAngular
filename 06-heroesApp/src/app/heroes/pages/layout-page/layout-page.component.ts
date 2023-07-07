@@ -17,19 +17,16 @@ export class LayoutPageComponent {
     {label: 'Añadir', icon:'add', url:'./new-hero'},
     {label: 'Buscar', icon:'search', url:'./search'}
   ]
-  //127. Iyectar el servicio
-  // 130. Crear propiedad
+
   constructor(
     private authService: AuthService,
     private router: Router
     ){}
 
-  //129. Crear un metodo para obtener el usuario
   get user(): User | undefined{
     return this.authService.currentUser
   }
 
-  //128. Crear el metodo onLogout
   onLogout(){
     this.authService.logout();
     this.router.navigate(['auth/login'])
