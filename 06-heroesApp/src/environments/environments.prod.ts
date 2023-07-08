@@ -1,4 +1,4 @@
 
 export const environments ={
-  baseUrl: 'http://123456.com/api'
+  baseUrl: 'https://heroesapi-ouqc.onrender.com'
 }
