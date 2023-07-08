@@ -27,9 +27,8 @@ export class AuthService {
       );
   }
 
-   //131. Metodo para verificar si hay un token y si este existe
-   checkAuthentication():Observable<boolean>{
-    if(!localStorage.getItem('token')) return of(false);
+   checkAuthentication():Observable<boolean> | boolean{
+    if(!localStorage.getItem('token')) return false;
 
     const token = localStorage.getItem('token');
 
